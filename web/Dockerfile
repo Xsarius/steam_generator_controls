@@ -20,3 +20,5 @@ ENV PYTHONUNBUFFERED 1
 
 # copy project
 COPY . .
+
+COPY ./web.sh .
