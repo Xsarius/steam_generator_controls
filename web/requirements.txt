@@ -1,5 +1,7 @@
-Django==3.2.5
-adafruit-circuitpython-max31865==2.2.17
+Django
+adafruit-circuitpython-max31865
+board
 RPi.GPIO
-gunicorn==20.0.4
+gunicorn
 django-bootstrap-v5
+pymodbus

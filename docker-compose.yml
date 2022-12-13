@@ -4,9 +4,9 @@ services:
   web:
     build: 
       context: ./web
-    command: ./web.sh
+    command: ./startup.sh
     volumes:
-      - ./web:/home/src/web/
+      - ./web:/home/src/web
       - static_volume:/home/src/web/static
     ports:
       - "8000:8000"

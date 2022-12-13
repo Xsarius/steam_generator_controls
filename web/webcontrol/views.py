@@ -1,6 +1,10 @@
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.views import View
+from ..sensors import sensors
+from ..web.settings import PINS
 
-# Create your views here.
-def index(request):
-    print(print('Temperature: {0:0.3f}C'.format(1)))
-    return render(request, 'Home.html', {'text': 1})
+pt100 = sensors.Pt100_SPI(PINS['TEMP_WATER_1'])
+
+class Index(View):
+    def get(self, request):
+        return HttpResponse(pt100.getTemp())

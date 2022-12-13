@@ -25,8 +25,21 @@ SECRET_KEY = 'django-insecure-4s^9-k2ehl*$v!9fg%7&6z%9=9@wnh3d$vmb_5m_76uq%1fmdx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.128', 'localhost']
+ALLOWED_HOSTS = ['localhost']
 
+# Raspberry pins used
+
+PINS = {
+    'TEMP_STEAM_1': 'D11',
+    'TEMP_STEAM_2': 'D13',
+    'TEMP_WATER_1': 'D15',
+    'VALVE_1': 'D18',
+    'HEATER_1': 'D22',
+    'HEATER_2': 'D24',
+    'HEATER_3': 'D26',
+    'HEATER_STEAM_1': 'D28',
+    'USB_PORT_1': '/dev/ttyUSB0',
+}
 
 # Application definition
 
@@ -125,3 +138,4 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
