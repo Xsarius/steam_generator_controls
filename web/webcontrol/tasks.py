@@ -102,3 +102,5 @@ class SGController:
         }
 
         return output
+
+sgcontroller1 = SGController()

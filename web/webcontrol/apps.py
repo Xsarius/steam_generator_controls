@@ -1,8 +1,8 @@
 from django.apps import AppConfig
-from .tasks import SGController
+from .tasks import sgcontroller1
 
 class WebcontrolConfig(AppConfig):
     name = 'web'
 
     def ready(self):
-        SGController.control_loop()
+        sgcontroller1.control_loop()

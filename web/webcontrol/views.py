@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import View
-from tasks import SGController
+from tasks import sgcontroller1
 
 class Index(View):
     def get(self, request):
@@ -29,8 +29,8 @@ class Index(View):
             'save': save_toggle,
         }
 
-        SGController.set_commands(commands)
+        sgcontroller1.set_commands(commands)
 
-        output = SGController.get_output()
+        output = sgcontroller1.get_output()
 
         return render(request, template, context=output)
