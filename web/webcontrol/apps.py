@@ -6,7 +6,8 @@ class WebcontrolConfig(AppConfig):
 
     def __init__(self, app_name, app_module):
         super(WebcontrolConfig, self).__init__(app_name, app_module)
-        self.controller = SGController()
+        self.controller = None
 
     def ready(self):
+        self.controller = SGController()
         self.controller.control_loop()
