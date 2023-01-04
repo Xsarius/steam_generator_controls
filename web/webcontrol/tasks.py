@@ -8,6 +8,7 @@ class SGController:
             'heater_3_power': 0,
             'heater_st_power': 0,
             'valve': 0,
+            'save': 0,
         }):
         self.STOP = STOP
         self.temp = temp
@@ -83,9 +84,10 @@ class SGController:
         self.control_commands['heater_1_power'] = commands['heater_1_power']
         self.control_commands['heater_2_power'] = commands['heater_2_power']
         self.control_commands['heater_3_power'] = commands['heater_3_power']
-        self.control_commands['heater_st_power'] = commands['heater_st_power']
+        self.control_commands['heater_st_power'] = commands['heater_steam_power']
         self.control_commands['valve'] = commands['valve']
         self.control_commands['STOP'] = commands['STOP']
+        self.control_commands['save'] = commands['save']
 
     def get_output(self):
         output = {
