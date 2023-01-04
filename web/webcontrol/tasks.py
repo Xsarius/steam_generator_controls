@@ -100,6 +100,7 @@ class SGController:
         self.control_commands['STOP'] = commands['STOP']
         self.control_commands['save'] = commands['save']
 
+    @shared_task
     def save_data_to_db(self, data):
         SteamGenerator.objects.create(
             water_temp= self.temp[0],
