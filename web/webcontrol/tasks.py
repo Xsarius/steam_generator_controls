@@ -1,6 +1,8 @@
 from celery import shared_task
 from .sensors import devices
 
+controller = None
+
 class SGController:
     def __init__(self, STOP=0, temp=[0, 0, 0], pressure=0, commands = {
             'heater_1_power': 0,
@@ -101,3 +103,7 @@ class SGController:
         }
 
         return output
+
+def create_controller():
+    if controller is None:
+        controller = SGController()
