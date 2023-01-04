@@ -22,5 +22,5 @@ COPY . .
 
 RUN apk add --no-cache redis
 
-RUN chmod u+x startup.sh
-RUN chmod u+x rpi_pins_setup.sh
+RUN chmod 777 /home/src/web/startup.sh
+RUN chmod 777 /home/src/web/rpi_pins_setup.sh

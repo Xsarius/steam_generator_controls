@@ -2,8 +2,6 @@ import digitalio, adafruit_max31865, serial.rs485, board
 from pymodbus.client import ModbusSerialClient
 import RPi.GPIO as GPIO
 
-GPIO.setmode(GPIO.BOARD)
-
 class Pt100_SPI():
     def __init__(self, pinNum, wires=4):
         self.pin = "board.{}".format(pinNum)
