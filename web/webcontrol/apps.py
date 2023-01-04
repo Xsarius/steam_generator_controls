@@ -9,5 +9,6 @@ class WebcontrolConfig(AppConfig):
         self.controller = None
 
     def ready(self):
-        self.controller = SGController()
+        if self.controller is None:
+            self.controller = SGController()
         self.controller.control_loop()
