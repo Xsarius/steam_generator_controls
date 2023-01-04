@@ -2,18 +2,17 @@ from celery import shared_task
 from .sensors import devices
 
 class SGController:
-    def __init__(self):
-        self.STOP = 0
-        self.temp = [0, 0, 0]
-        self.pressure = 0
-        self.control_commands = {
+    def __init__(self, STOP=0, temp=[0, 0, 0], pressure=0, commands = {
             'heater_1_power': 0,
             'heater_2_power': 0,
             'heater_3_power': 0,
             'heater_st_power': 0,
             'valve': 0,
-        }
-
+        }):
+        self.STOP = STOP
+        self.temp = temp
+        self.pressure = pressure
+        self.control_commands = commands
 
     @shared_task()
     def control_loop(self):
