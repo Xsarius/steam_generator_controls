@@ -1,7 +1,6 @@
 #!/bin/sh
 
 #pins setup
-alias docker-compose='docker compose'
 raspi-gpio set 23 op
 raspi-gpio set 24 op
 raspi-gpio set 25 op
