@@ -21,3 +21,6 @@ ENV PYTHONUNBUFFERED 1
 COPY . .
 
 RUN apk add --no-cache redis
+
+RUN chmod u+x startup.sh
+RUN chmod u+x rpi_pins_setup.sh
