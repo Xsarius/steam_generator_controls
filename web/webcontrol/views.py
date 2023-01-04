@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import View
-from apps import sgcontroller1
+from django.apps import apps
 
 class Index(View):
     def get(self, request):
@@ -28,6 +28,8 @@ class Index(View):
             'STOP': stop,
             'save': save_toggle,
         }
+
+        sgcontroller1 = apps.get_app_config('web').controller
 
         sgcontroller1.set_commands(commands)
 
