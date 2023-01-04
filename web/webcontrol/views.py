@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import View
-from tasks import sgcontroller1
+from apps import sgcontroller1
 
 class Index(View):
     def get(self, request):

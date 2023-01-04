@@ -1,5 +1,7 @@
 from django.apps import AppConfig
-from .tasks import sgcontroller1
+from .tasks import SGController
+
+sgcontroller1 = SGController()
 
 class WebcontrolConfig(AppConfig):
     name = 'web'
