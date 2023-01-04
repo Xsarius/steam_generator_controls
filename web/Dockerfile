@@ -19,3 +19,5 @@ ENV PYTHONUNBUFFERED 1
 
 # copy project
 COPY . .
+
+RUN apk add --no-cache redis

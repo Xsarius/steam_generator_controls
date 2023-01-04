@@ -16,6 +16,8 @@ services:
     env_file:
       - ./.env
     privileged: true
+    depends_on:
+      - db
   nginx:
     build: 
       context: ./nginx
@@ -26,6 +28,13 @@ services:
     depends_on:
       - web
     restart: "on-failure"
-
+  db:
+    build:
+      context: ./postgres
+    volumes:
+      - postgres_data:/var/lib/postgres/data/
+    env_file:
+      - ./postgres/postgres.env
 volumes:
   static_volume:
+  postgres_data:

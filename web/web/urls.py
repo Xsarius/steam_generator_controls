@@ -18,6 +18,6 @@ from django.urls import path
 from webcontrol import views
 
 urlpatterns = [
-    path('', views.index),
+    path('', views.Index.as_view()),
     path('admin/', admin.site.urls),
 ]
