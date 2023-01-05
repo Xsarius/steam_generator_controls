@@ -16,8 +16,6 @@ services:
     env_file:
       - ./.env
     privileged: true
-    depends_on:
-      - db
   nginx:
     build: 
       context: ./nginx
