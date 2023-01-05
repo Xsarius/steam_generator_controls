@@ -4,7 +4,6 @@ services:
   web:
     build: 
       context: ./web
-    command: ./startup.sh
     volumes:
       - ./web:/home/src/web
       - static_volume:/home/src/web/static
@@ -29,6 +28,7 @@ services:
   redis:
     build:
       context: ./redis
+    command: "redis-server"
     ports:
       - '6379:6379'
 volumes:
