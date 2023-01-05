@@ -27,6 +27,8 @@ class Index(View):
 
         controller.set_commands(commands)
 
+        controller.control_loop()
+
         output = controller.get_output()
 
         context = {

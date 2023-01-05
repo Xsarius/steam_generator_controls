@@ -20,19 +20,19 @@ class SGController:
         print("Controls started")
 
         # Water temperature sensor
-        temp_sensor_w1 = devices.Pt100_SPI()
+        temp_sensor_w1 = devices.Pt100_SPI(pinNum=)
 
         # Steam temperature sensors
-        temp_sensor_s1 = devices.Pt100_SPI()
-        temp_sensor_s2 = devices.Pt100_SPI()
+        temp_sensor_s1 = devices.Pt100_SPI(pinNum=)
+        temp_sensor_s2 = devices.Pt100_SPI(pinNum=)
 
         # Pressure sensor
-        pressure_sensor_1 = devices.Keller23SX_RS485()
+        pressure_sensor_1 = devices.Keller23SX_RS485(USB_port=)
 
         # Water 3 phase heater
-        heater_water_1 = devices.Heater_SSR(maxpower=2667)
-        heater_water_2 = devices.Heater_SSR(maxpower=2667)
-        heater_water_3 = devices.Heater_SSR(maxpower=2667)
+        heater_water_1 = devices.Heater_SSR(pinNum=,maxpower=2667)
+        heater_water_2 = devices.Heater_SSR(pinNum=,maxpower=2667)
+        heater_water_3 = devices.Heater_SSR(pinNum=,maxpower=2667)
 
         # Steam 1 phase superheater
         heater_steam_1 = devices.Heater_SSR(maxpower=954)
@@ -99,8 +99,6 @@ class SGController:
         self.control_commands['STOP'] = commands['STOP']
         self.control_commands['save'] = commands['save']
 
-        self.control_loop()
-
     @shared_task
     def save_data_to_db(self, data):
         # SteamGenerator.objects.create(
@@ -117,7 +115,6 @@ class SGController:
         pass
 
     def get_output(self):
-        self.control_loop()
 
         output = {
             'water_temp': self.temp[0],
