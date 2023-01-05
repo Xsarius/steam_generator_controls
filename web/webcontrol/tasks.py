@@ -40,6 +40,8 @@ class SGController:
         steam_valve_1 = devices.Valve_SRR()
 
         while True:
+            print("Controls running")
+
 
             if(self.STOP):
                 heater_steam_1.off()
