@@ -29,4 +29,9 @@ class Index(View):
 
         output = controller.get_output()
 
-        return render(request, template, [output, commands])
+        context = {
+            'output': output,
+            'commands': commands
+        }
+
+        return render(request, template, context)
