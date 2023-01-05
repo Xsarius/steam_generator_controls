@@ -29,7 +29,12 @@ services:
     build:
       context: ./redis
     command: "redis-server"
-    ports:
-      - '6379:6379'
+  celery:
+    restart: always
+    build:
+      context: .
+    command: celery -A app worker -l info
+    volumes:
+     - ./web:/home/src/web
 volumes:
   static_volume:
