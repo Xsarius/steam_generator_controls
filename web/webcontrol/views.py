@@ -34,4 +34,4 @@ class Index(View):
 
         output = controller.get_output()
 
-        return render(request, template, context=output)
+        return render(request, template, commands)
