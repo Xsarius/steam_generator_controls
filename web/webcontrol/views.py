@@ -4,7 +4,7 @@ from web.wsgi import controller
 
 class Index(View):
 
-    def get(self, request):
+    def get(self, request, *args, **kwargs):
         template = 'index.html'
 
         emergerny_stop = request.GET.get('emergency_stop')
