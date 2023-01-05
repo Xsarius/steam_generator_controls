@@ -17,7 +17,6 @@ class Index(View):
         ht_3_pwr = request.GET.get('heater_3_power')
         ht_st_pwr = request.GET.get('heater_steam_power')
         valve = request.GET.get('valve')
-        stop = request.GET.get('stop')
         save_toggle = request.GET.get('save')
 
         commands = {
@@ -34,4 +33,4 @@ class Index(View):
 
         output = controller.get_output()
 
-        return render(request, template, commands)
+        return render(request, template, [commands, output])
