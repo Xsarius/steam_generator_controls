@@ -1,5 +1,6 @@
 from celery import shared_task
 from .sensors import devices
+from ..web.settings import PINS
 
 class SGController:
     def __init__(self, STOP=0, temp=[0, 0, 0], pressure=0, commands = {
@@ -20,24 +21,24 @@ class SGController:
         print("Controls started")
 
         # Water temperature sensor
-        temp_sensor_w1 = devices.Pt100_SPI(pinNum=)
+        temp_sensor_w1 = devices.Pt100_SPI(pinNum=PINS['TEMP_WATER_1'])
 
         # Steam temperature sensors
-        temp_sensor_s1 = devices.Pt100_SPI(pinNum=)
-        temp_sensor_s2 = devices.Pt100_SPI(pinNum=)
+        temp_sensor_s1 = devices.Pt100_SPI(pinNum=PINS['TEMP_STEAM_1'])
+        temp_sensor_s2 = devices.Pt100_SPI(pinNum=PINS['TEMP_STEAM_1'])
 
         # Pressure sensor
-        pressure_sensor_1 = devices.Keller23SX_RS485(USB_port=)
+        pressure_sensor_1 = devices.Keller23SX_RS485(USB_port=PINS['USB_PORT_1'])
 
         # Water 3 phase heater
-        heater_water_1 = devices.Heater_SSR(pinNum=,maxpower=2667)
-        heater_water_2 = devices.Heater_SSR(pinNum=,maxpower=2667)
-        heater_water_3 = devices.Heater_SSR(pinNum=,maxpower=2667)
+        heater_water_1 = devices.Heater_SSR(pinNum=PINS['HEATER_1'],maxpower=2667)
+        heater_water_2 = devices.Heater_SSR(pinNum=PINS['HEATER_2'],maxpower=2667)
+        heater_water_3 = devices.Heater_SSR(pinNum=PINS['HEATER_3'],maxpower=2667)
 
         # Steam 1 phase superheater
-        heater_steam_1 = devices.Heater_SSR(maxpower=954)
+        heater_steam_1 = devices.Heater_SSR(pinNum=PINS['HETER_STEAM_1'],maxpower=954)
 
-        steam_valve_1 = devices.Valve_SRR()
+        steam_valve_1 = devices.Valve_SRR(pinNum=PINS['VALVE_1'])
 
         print("Controls running")
 
