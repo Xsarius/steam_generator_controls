@@ -1,12 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.template import loader
 from django.views import View
 from web.wsgi import controller
 
 class Index(View):
     def get(self, request):
-        template = loader.get_template('index.html')
+        template = 'index.html'
 
         emergerny_stop = request.GET.get('emergency_stop')
 
@@ -35,4 +34,4 @@ class Index(View):
 
         output = controller.get_output()
 
-        return HttpResponse(template.render(output, request))
+        return HttpResponse("<h1>Work</h1>")
