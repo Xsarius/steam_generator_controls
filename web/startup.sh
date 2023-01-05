@@ -1,6 +1,6 @@
 #!/bin/sh
 #sh ./rpi_pins_setup.sh
-
+redis-server
 redis-cli ping
 
 python3 manage.py makemigrations
