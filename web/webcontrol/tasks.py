@@ -1,6 +1,5 @@
 from celery import shared_task
 from .sensors import devices
-from webcontrol.models import SteamGenerator
 
 class SGController:
     def __init__(self, STOP=0, temp=[0, 0, 0], pressure=0, commands = {
@@ -102,17 +101,18 @@ class SGController:
 
     @shared_task
     def save_data_to_db(self, data):
-        SteamGenerator.objects.create(
-            water_temp= self.temp[0],
-            steam_temp_1= self.temp[1],
-            steam_temp_2= self.temp[2],
-            pressure= self.pressure,
-            heater_water1_power=data['ht1_pwr'],
-            heater_water2_power=data['ht2_pwr'],
-            heater_water3_power=data['ht3_pwr'],
-            heater_steam_power = data['htst_pwr'],
-            valve = data['valve']
-        )
+        # SteamGenerator.objects.create(
+        #     water_temp= self.temp[0],
+        #     steam_temp_1= self.temp[1],
+        #     steam_temp_2= self.temp[2],
+        #     pressure= self.pressure,
+        #     heater_water1_power=data['ht1_pwr'],
+        #     heater_water2_power=data['ht2_pwr'],
+        #     heater_water3_power=data['ht3_pwr'],
+        #     heater_steam_power = data['htst_pwr'],
+        #     valve = data['valve']
+        # )
+        pass
 
     def get_output(self):
         output = {
