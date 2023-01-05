@@ -40,54 +40,55 @@ class SGController:
 
         steam_valve_1 = devices.Valve_SRR(pinNum=PINS['VALVE_1'])
 
-        print("Controls running")
+        while True:
+            print("Controls running")
 
-        if(self.STOP):
-            heater_steam_1.off()
-            heater_water_1.off()
-            heater_water_2.off()
-            heater_water_3.off()
-            steam_valve_1.close()
+            if(self.STOP):
+                heater_steam_1.off()
+                heater_water_1.off()
+                heater_water_2.off()
+                heater_water_3.off()
+                steam_valve_1.close()
 
-        self.temp[0] = temp_sensor_w1.getTemp()
-        self.temp[1] = temp_sensor_s1.getTemp()
-        self.temp[2] = temp_sensor_s2.getTemp()
-        self.pressure = pressure_sensor_1.getPressure()
+            self.temp[0] = temp_sensor_w1.getTemp()
+            self.temp[1] = temp_sensor_s1.getTemp()
+            self.temp[2] = temp_sensor_s2.getTemp()
+            self.pressure = pressure_sensor_1.getPressure()
 
-        if(self.control_commands['save']):
-            data = {
-                'ht1_pwr': heater_water_1.power,
-                'ht2_pwr': heater_water_2.power,
-                'ht3_pwr': heater_water_3.power,
-                'htst_pwr': heater_steam_1.power,
-                'valve': steam_valve_1.state
-            }
-            self.save_data_to_db(data=data)
+            if(self.control_commands['save']):
+                data = {
+                    'ht1_pwr': heater_water_1.power,
+                    'ht2_pwr': heater_water_2.power,
+                    'ht3_pwr': heater_water_3.power,
+                    'htst_pwr': heater_steam_1.power,
+                    'valve': steam_valve_1.state
+                }
+                self.save_data_to_db(data=data)
 
-        if(self.control_commands['heater_st_power']):
-            heater_steam_1.on()
-        elif(not self.control_commands['heater_st_power']):
-            heater_steam_1.off()
+            if(self.control_commands['heater_st_power']):
+                heater_steam_1.on()
+            elif(not self.control_commands['heater_st_power']):
+                heater_steam_1.off()
 
-        if(self.control_commands['heater_1_power']):
-            heater_water_1.on()
-        elif(not self.control_commands['heater_1_power']):
-            heater_water_1.off()
+            if(self.control_commands['heater_1_power']):
+                heater_water_1.on()
+            elif(not self.control_commands['heater_1_power']):
+                heater_water_1.off()
 
-        if(self.control_commands['heater_2_power']):
-            heater_water_2.on()
-        elif(not self.control_commands['heater_2_power']):
-            heater_water_2.off()
+            if(self.control_commands['heater_2_power']):
+                heater_water_2.on()
+            elif(not self.control_commands['heater_2_power']):
+                heater_water_2.off()
 
-        if(self.control_commands['heater_3_power']):
-            heater_water_3.on()
-        elif(not self.control_commands['heater_3_power']):
-            heater_water_3.off()
+            if(self.control_commands['heater_3_power']):
+                heater_water_3.on()
+            elif(not self.control_commands['heater_3_power']):
+                heater_water_3.off()
 
-        if(self.control_commands['valve']):
-            steam_valve_1.open()
-        elif(not self.control_commands['valve']):
-            steam_valve_1.close()
+            if(self.control_commands['valve']):
+                steam_valve_1.open()
+            elif(not self.control_commands['valve']):
+                steam_valve_1.close()
 
     # Commands - dict with approperiate commands
 
