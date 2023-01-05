@@ -20,8 +20,6 @@ ENV PYTHONUNBUFFERED 1
 # copy project
 COPY . .
 
-RUN apk add --no-cache redis
-
 RUN chmod 777 /home/src/web/startup.sh
 RUN chmod 777 /home/src/web/rpi_pins_setup.sh
 
