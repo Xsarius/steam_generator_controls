@@ -26,9 +26,7 @@ services:
       - web
     restart: "on-failure"
   redis:
-    build:
-      context: ./redis
-    command: "redis-server"
+    image: redis:alpine
   celery:
     restart: always
     build:
