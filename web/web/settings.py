@@ -69,7 +69,7 @@ ROOT_URLCONF = 'web.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'your_app_name', 'templates', 'your_app_name'),],
+        'DIRS': [os.path.join(BASE_DIR, 'webcontrol', 'templates', 'webcontrol'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
