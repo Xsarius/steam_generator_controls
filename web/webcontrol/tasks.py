@@ -1,6 +1,7 @@
 from .sensors import devices
 from web.settings import PINS
 from web.celery import app
+import time
 
 class SGController:
     def __init__(self, STOP=0, temp=[0, 0, 0], pressure=0, commands = {
@@ -115,6 +116,8 @@ def control_loop(controller):
         steam_valve_1.open()
     elif(not controller.control_commands['valve']):
         steam_valve_1.close()
+
+    time.sleep(10)
 
 @app.task()
 def save_data_to_db(controller, data):
