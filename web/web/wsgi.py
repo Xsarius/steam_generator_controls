@@ -10,7 +10,7 @@ https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/
 import os
 
 from django.core.wsgi import get_wsgi_application
-from webcontrol.tasks import SGController
+from webcontrol.tasks import SGController, control_loop
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'web.settings')
 
@@ -18,4 +18,4 @@ controller = SGController()
 
 application = get_wsgi_application()
 
-controller.control_loop()
+control_loop(controller)
