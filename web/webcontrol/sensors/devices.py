@@ -31,7 +31,7 @@ class Heater_SSR():
         self.pin = pinNum
         self.power = power
         self.maxpower = maxpower
-        GPIO.setup(pinNum, GPIO.OUT)
+        # GPIO.setup(pinNum, GPIO.OUT)
 
     def on(self):
         GPIO.output(self.pin, GPIO.HIGH)
@@ -45,7 +45,7 @@ class Valve_SRR():
     def __init__(self, pinNum, state='close'):
         self.pin = pinNum
         self.state = state
-        GPIO.setup(pinNum, GPIO.OUT)
+        # GPIO.setup(pinNum, GPIO.OUT)
 
     def open(self):
         GPIO.output(self.pin, GPIO.HIGH)
