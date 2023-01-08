@@ -28,8 +28,6 @@ services:
       - static_volume:/home/src/web/static
     ports:
       - 1337:80
-    depends_on:
-      - web
     restart: "on-failure"
   redis:
     build: ./redis
