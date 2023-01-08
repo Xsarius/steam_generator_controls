@@ -30,14 +30,14 @@ ALLOWED_HOSTS = ['localhost', '192.168.0.26']
 # Raspberry pins used
 
 PINS = {
-    'TEMP_STEAM_1': 'D11',
-    'TEMP_STEAM_2': 'D13',
-    'TEMP_WATER_1': 'D15',
-    'VALVE_1': 'D18',
-    'HEATER_1': 'D22',
-    'HEATER_2': 'D24',
-    'HEATER_3': 'D26',
-    'HEATER_STEAM_1': 'D28',
+    'TEMP_STEAM_1': '0',
+    'TEMP_STEAM_2': '0',
+    'TEMP_WATER_1': '0',
+    'VALVE_1': '0',
+    'HEATER_1': '0',
+    'HEATER_2': '0',
+    'HEATER_3': '0',
+    'HEATER_STEAM_1': '0',
     'USB_PORT_1': '/dev/ttyUSB0',
 }
 
