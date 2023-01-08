@@ -10,7 +10,7 @@ class Pt100_SPI():
         # self.sensor = adafruit_max31865.MAX31865(self.spi, self.cs, wires)
 
     def getTemp(self):
-        return self.sensor.temperature
+        return 0 #self.sensor.temperature
 
 class Keller23SX_RS485():
     def __init__(self, USB_port, baudrate=9600):
@@ -21,10 +21,10 @@ class Keller23SX_RS485():
         # self.client.socket = self.serial_port
 
     def getPressure(self):
-        self.client.connect()
-        result = self.client.read_input_registers(1)
-        self.client.close()
-        return result
+        # self.client.connect()
+        # result = self.client.read_input_registers(1)
+        # self.client.close()
+        return 0
 
 class Heater_SSR():
     def __init__(self, pinNum, maxpower, power=0):
