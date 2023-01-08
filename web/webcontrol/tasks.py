@@ -67,55 +67,54 @@ def control_loop(controller):
 
     steam_valve_1 = devices.Valve_SRR(pinNum=PINS['VALVE_1'])
 
-    while True:
-        print("Controls running")
+    print("Controls running")
 
-        if(controller.STOP):
-            heater_steam_1.off()
-            heater_water_1.off()
-            heater_water_2.off()
-            heater_water_3.off()
-            steam_valve_1.close()
+    if(controller.STOP):
+        heater_steam_1.off()
+        heater_water_1.off()
+        heater_water_2.off()
+        heater_water_3.off()
+        steam_valve_1.close()
 
-        controller.temp[0] = temp_sensor_w1.getTemp()
-        controller.temp[1] = temp_sensor_s1.getTemp()
-        controller.temp[2] = temp_sensor_s2.getTemp()
-        controller.pressure = pressure_sensor_1.getPressure()
+    controller.temp[0] = temp_sensor_w1.getTemp()
+    controller.temp[1] = temp_sensor_s1.getTemp()
+    controller.temp[2] = temp_sensor_s2.getTemp()
+    controller.pressure = pressure_sensor_1.getPressure()
 
-        if(controller.control_commands['save']):
-            data = {
-                'ht1_pwr': heater_water_1.power,
-                'ht2_pwr': heater_water_2.power,
-                'ht3_pwr': heater_water_3.power,
-                'htst_pwr': heater_steam_1.power,
-                'valve': steam_valve_1.state
-            }
-            controller.save_data_to_db(data=data)
+    if(controller.control_commands['save']):
+        data = {
+            'ht1_pwr': heater_water_1.power,
+            'ht2_pwr': heater_water_2.power,
+            'ht3_pwr': heater_water_3.power,
+            'htst_pwr': heater_steam_1.power,
+            'valve': steam_valve_1.state
+        }
+        controller.save_data_to_db(data=data)
 
-        if(controller.control_commands['heater_st_power']):
-            heater_steam_1.on()
-        elif(not controller.control_commands['heater_st_power']):
-            heater_steam_1.off()
+    if(controller.control_commands['heater_st_power']):
+        heater_steam_1.on()
+    elif(not controller.control_commands['heater_st_power']):
+        heater_steam_1.off()
 
-        if(controller.control_commands['heater_1_power']):
-            heater_water_1.on()
-        elif(not controller.control_commands['heater_1_power']):
-            heater_water_1.off()
+    if(controller.control_commands['heater_1_power']):
+        heater_water_1.on()
+    elif(not controller.control_commands['heater_1_power']):
+        heater_water_1.off()
 
-        if(controller.control_commands['heater_2_power']):
-            heater_water_2.on()
-        elif(not controller.control_commands['heater_2_power']):
-            heater_water_2.off()
+    if(controller.control_commands['heater_2_power']):
+        heater_water_2.on()
+    elif(not controller.control_commands['heater_2_power']):
+        heater_water_2.off()
 
-        if(controller.control_commands['heater_3_power']):
-            heater_water_3.on()
-        elif(not controller.control_commands['heater_3_power']):
-            heater_water_3.off()
+    if(controller.control_commands['heater_3_power']):
+        heater_water_3.on()
+    elif(not controller.control_commands['heater_3_power']):
+        heater_water_3.off()
 
-        if(controller.control_commands['valve']):
-            steam_valve_1.open()
-        elif(not controller.control_commands['valve']):
-            steam_valve_1.close()
+    if(controller.control_commands['valve']):
+        steam_valve_1.open()
+    elif(not controller.control_commands['valve']):
+        steam_valve_1.close()
 
 @shared_task()
 def save_data_to_db(controller, data):

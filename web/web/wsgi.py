@@ -17,5 +17,3 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'web.settings')
 controller = SGController()
 
 application = get_wsgi_application()
-
-control_loop(controller)

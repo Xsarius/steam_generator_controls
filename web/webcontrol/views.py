@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from web.wsgi import controller
+from tasks import control_loop
 
 class Index(View):
 
@@ -26,6 +27,8 @@ class Index(View):
         }
 
         controller.set_commands(commands)
+
+        control_loop(controller)
 
         output = controller.get_output()
 
