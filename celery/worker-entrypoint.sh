@@ -1,3 +1,3 @@
 #!/bin/sh
 
-celery -A web worker --loglevel=info
+celery -A web worker -l INFO
