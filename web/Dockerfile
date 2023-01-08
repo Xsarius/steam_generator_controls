@@ -19,5 +19,3 @@ ENV PYTHONUNBUFFERED 1
 
 # copy project
 COPY . .
-
-ENTRYPOINT ["sh", "entrypoint.sh" ]

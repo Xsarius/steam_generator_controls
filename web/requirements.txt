@@ -7,3 +7,4 @@ django-bootstrap-v5
 pymodbus
 celery
 redis
+psycopg2-binary
