@@ -7,9 +7,6 @@ services:
     volumes:
       - ./web:/home/src/web
       - static_volume:/home/src/web/static
-    command: 
-       gunicorn web.wsgi:application --bind 0.0.0.0:8000 \
-       celery -A web worker --loglevel=INFO
     ports:
       - "8000:8000"
     restart: "on-failure"
