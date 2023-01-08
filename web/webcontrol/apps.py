@@ -3,6 +3,3 @@ from web.wsgi import controller
 
 class WebcontrolConfig(AppConfig):
     name = 'web'
-
-    def ready(self):
-        controller.control_loop()
