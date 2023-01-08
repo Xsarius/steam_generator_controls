@@ -7,6 +7,8 @@ services:
     volumes:
       - ./web:/home/src/web
       - static_volume:/home/src/web/static
+    command: 
+      'gunicorn web.wsgi:application --bind 0.0.0.0:8000 --workers 4 --threads 4'
     ports:
       - "8000:8000"
     restart: "on-failure"
@@ -32,9 +34,11 @@ services:
       - 6379
   celery:
     build:
-      context: ./celery
+      context: ./web
     volumes:
-      - ./celery:/home/src/celery
+      - ./web:/home/src/web
+    command: 
+      'celery -A web worker -l INFO'
   db:
     build: ./postgres 
     volumes:
