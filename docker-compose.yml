@@ -30,15 +30,13 @@ services:
   redis:
     build: ./redis
     command: redis-server redis.conf
-    expose:
-      - 6379
   celery:
     build:
       context: ./web
     volumes:
       - ./web:/home/src/web
     command:
-      'celery -A web worker -l INFO'
+      celery -A web worker --loglevel=INFO
   db:
     build: ./postgres
     volumes:
