@@ -2,11 +2,13 @@ version: '3.8'
 
 services:
   web:
-    build: 
+    build:
       context: ./web
     volumes:
       - ./web:/home/src/web
       - static_volume:/home/src/web/static
+    command:
+      gunicorn web.wsgi:application --bind 0.0.0.0:8000 
     ports:
       - "8000:8000"
     restart: "on-failure"
@@ -17,8 +19,9 @@ services:
     privileged: true
     depends_on:
       - db
+      - redis
   nginx:
-    build: 
+    build:
       context: ./nginx
     volumes:
       - static_volume:/home/src/web/static
@@ -30,6 +33,15 @@ services:
   redis:
     build: ./redis
     command: redis-server redis.conf
+  celery:
+    build: ./web
+    command: celery -A web worker --loglevel=INFO
+    volumes:
+      - ./web:/home/src/web
+    privileged: true
+    depends_on:
+      - db
+      - redis
   db:
     build: ./postgres
     volumes:

@@ -1,4 +1,4 @@
-from celery import shared_task
+from celery import task
 from .sensors import devices
 from web.settings import PINS
 
@@ -43,7 +43,7 @@ class SGController:
 
         return output
 
-@shared_task()
+@task()
 def control_loop(controller):
     print("Controls started")
 
@@ -116,7 +116,7 @@ def control_loop(controller):
     elif(not controller.control_commands['valve']):
         steam_valve_1.close()
 
-@shared_task()
+@task()
 def save_data_to_db(controller, data):
     # SteamGenerator.objects.create(
     #     water_temp= self.temp[0],
