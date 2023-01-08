@@ -7,7 +7,7 @@ services:
     volumes:
       - ./web:/home/src/web
       - static_volume:/home/src/web/static
-    entrypoint: ./web/server-entrypoint.sh
+    entrypoint: /home/src/web/web/server-entrypoint.sh
     ports:
       - "8000:8000"
     restart: "on-failure"
@@ -34,7 +34,7 @@ services:
   celery:
     build:
       context: ./web
-    entrypoint: ./web/worker-entrypoint.sh
+    entrypoint: /home/src/web/web/worker-entrypoint.sh
     volumes:
      - ./web:/home/src/web
   db:
