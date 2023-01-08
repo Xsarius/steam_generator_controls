@@ -20,5 +20,5 @@ ENV PYTHONUNBUFFERED 1
 # copy project
 COPY . .
 
-RUN chmod +x /web/server-entrypoint.sh
-RUN chmod +x /web/worker-entrypoint.sh
+RUN chmod +x /home/src/web/server-entrypoint.sh
+RUN chmod +x /home/src/web/worker-entrypoint.sh
