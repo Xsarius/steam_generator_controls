@@ -1,5 +1,6 @@
 from .sensors import devices
 from web.settings import PINS
+import celery
 
 class SGController:
     def __init__(self, STOP=0, temp=[0, 0, 0], pressure=0, commands = {
