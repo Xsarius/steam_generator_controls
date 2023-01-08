@@ -1,4 +1,4 @@
-from .sensors import devices
+from webcontrol.sensors import devices
 from web.settings import PINS
 from celery import shared_task
 import time

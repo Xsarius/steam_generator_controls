@@ -35,7 +35,7 @@ services:
     command: redis-server redis.conf
   celery:
     build: ./web
-    command: celery -A web worker --loglevel=INFO -E
+    command: celery --app=web worker --loglevel=INFO -E
     restart: always
     volumes:
       - ./web:/home/src/web
