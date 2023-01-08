@@ -35,7 +35,7 @@ services:
     command: redis-server redis.conf
   celery:
     build: ./web
-    command: celery -A web worker --loglevel=INFO
+    command: celery -A web worker --loglevel=INFO -E
     volumes:
       - ./web:/home/src/web
     privileged: true
