@@ -63,7 +63,7 @@ def control_loop(controller):
     heater_water_3 = devices.Heater_SSR(pinNum=PINS['HEATER_3'],maxpower=2667)
 
     # Steam 1 phase superheater
-    heater_steam_1 = devices.Heater_SSR(pinNum=PINS['HETER_STEAM_1'],maxpower=954)
+    heater_steam_1 = devices.Heater_SSR(pinNum=PINS['HEATER_STEAM_1'],maxpower=954)
 
     steam_valve_1 = devices.Valve_SRR(pinNum=PINS['VALVE_1'])
 
