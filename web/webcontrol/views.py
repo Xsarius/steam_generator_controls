@@ -30,7 +30,17 @@ class Index(View):
 
         control_loop.delay(controller)
 
-        output = 0
+        output = output = {
+            'water_temp': 0,
+            'steam_temp_1': 0,
+            'steam_temp_2': 0,
+            'pressure': 0,
+            'heater_1': 0,
+            'heater_2': 0,
+            'heater_3': 0,
+            'heater_st': 0,
+            'valve': 0,
+        }
 
         context = {
             'output': output,
