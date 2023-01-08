@@ -15,6 +15,7 @@ from webcontrol.tasks import SGController
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'web.settings')
 
 controller = SGController()
-controller.control_loop()
 
 application = get_wsgi_application()
+
+controller.control_loop()
