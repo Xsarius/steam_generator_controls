@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from web.wsgi import controller
-from tasks import control_loop
+from .tasks import control_loop
 
 class Index(View):
 
