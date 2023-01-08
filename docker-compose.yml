@@ -36,7 +36,7 @@ services:
       context: ./web
     entrypoint: /home/src/web/worker-entrypoint.sh
     volumes:
-     - ./web:/home/src/web
+      - ./web:/home/src/web
   db:
     build: ./postgres 
     volumes:
