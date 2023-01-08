@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'webcontrol',
-    'bootstrap5',
+    'celery',
     ]
 
 MIDDLEWARE = [
