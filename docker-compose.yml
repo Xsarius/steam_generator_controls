@@ -17,6 +17,10 @@ services:
     env_file:
       - ./.env
     privileged: true
+    depends_on:
+      - nginx
+      - db
+      - celery
   nginx:
     build: 
       context: ./nginx
