@@ -16,9 +16,9 @@ class Keller23SX_RS485():
     def __init__(self, USB_port, baudrate=9600):
         self.usb_port = USB_port
         self.baudrate = baudrate
-        self.serial_port = serial.rs485.RS485(port=self.usb_port, baudrate=self.baudrate)
-        self.client = ModbusSerialClient(method='rtu')
-        self.client.socket = self.serial_port
+        # self.serial_port = serial.rs485.RS485(port=self.usb_port, baudrate=self.baudrate)
+        # self.client = ModbusSerialClient(method='rtu')
+        # self.client.socket = self.serial_port
 
     def getPressure(self):
         self.client.connect()
