@@ -28,7 +28,7 @@ services:
     restart: "on-failure"
   redis:
     build: ./redis
-    command: redis-server redis/redis.conf
+    command: redis-server
     expose:
       - 6379
   celery:
