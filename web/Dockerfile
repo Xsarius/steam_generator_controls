@@ -20,7 +20,4 @@ ENV PYTHONUNBUFFERED 1
 # copy project
 COPY . .
 
-RUN chmod 777 /home/src/web/startup.sh
-RUN chmod 777 /home/src/web/rpi_pins_setup.sh
-
-ENTRYPOINT ["sh", "startup.sh" ]
+ENTRYPOINT ["sh", "entrypoint.sh" ]

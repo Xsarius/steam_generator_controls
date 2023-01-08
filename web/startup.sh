@@ -1,5 +1,4 @@
 #!/bin/sh
-#sh ./rpi_pins_setup.sh
 
 python3 manage.py makemigrations
 python3 manage.py migrate
