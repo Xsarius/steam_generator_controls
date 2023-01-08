@@ -30,7 +30,7 @@ class Index(View):
 
         control_loop.delay(controller)
 
-        output = controller.get_output()
+        output = 0
 
         context = {
             'output': output,
