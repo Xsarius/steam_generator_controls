@@ -33,10 +33,9 @@ services:
       - 6379
   celery:
     build:
-      context: ./web
-    command: /home/src/web/worker-entrypoint.sh
+      context: ./celery
     volumes:
-      - ./web:/home/src/web
+      - ./celery:/home/src/celery
   db:
     build: ./postgres 
     volumes:

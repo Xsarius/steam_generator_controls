@@ -1,6 +1,6 @@
 FROM alpine:3.16
 
-WORKDIR /home/src/web
+WORKDIR /home/src/celery
 
 RUN apk update
 RUN apk add --no-cache bash
@@ -20,4 +20,4 @@ ENV PYTHONUNBUFFERED 1
 # copy project
 COPY . .
 
-ENTRYPOINT [ "sh", "server-entrypoint.sh" ]
+ENTRYPOINT [ "sh", "worker-entrypoint.sh" ]
