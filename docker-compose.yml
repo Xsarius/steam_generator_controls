@@ -36,12 +36,14 @@ services:
   celery:
     build: ./web
     command: celery -A web worker --loglevel=INFO -E
+    restart: always
     volumes:
       - ./web:/home/src/web
     privileged: true
     depends_on:
       - db
       - redis
+      - web
   db:
     build: ./postgres
     volumes:
