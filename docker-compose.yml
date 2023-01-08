@@ -7,7 +7,6 @@ services:
     volumes:
       - ./web:/home/src/web
       - static_volume:/home/src/web/static
-    entrypoint: /home/src/web/server-entrypoint.sh
     ports:
       - "8000:8000"
     restart: "on-failure"
