@@ -29,7 +29,7 @@ services:
     restart: "on-failure"
   redis:
     build: ./redis
-    command: redis-server
+    command: redis-server redis.conf
     expose:
       - 6379
   celery:
@@ -37,10 +37,10 @@ services:
       context: ./web
     volumes:
       - ./web:/home/src/web
-    command: 
+    command:
       'celery -A web worker -l INFO'
   db:
-    build: ./postgres 
+    build: ./postgres
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     ports:
