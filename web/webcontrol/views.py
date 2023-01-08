@@ -28,7 +28,7 @@ class Index(View):
 
         controller.set_commands(commands)
 
-        control_loop(controller)
+        control_loop.delay(controller)
 
         output = controller.get_output()
 
