@@ -34,7 +34,7 @@ services:
   celery:
     build:
       context: ./web
-    entrypoint: /home/src/web/worker-entrypoint.sh
+    command: /home/src/web/worker-entrypoint.sh
     volumes:
       - ./web:/home/src/web
   db:
