@@ -20,4 +20,4 @@ ENV PYTHONUNBUFFERED 1
 # copy project
 COPY . .
 
-ENTRYPOINT [ "sh", "server-entrypoint.sh" ]
+CMD ["sh", "server-entrypoint.sh" ]
