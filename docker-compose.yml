@@ -33,10 +33,6 @@ services:
   redis-broker:
     build: ./redis
     command: redis-server
-    expose:
-      - 6379
-    ports:
-      - '6379:6379'
     restart: 'on-failure'
   celery:
     build: ./web
