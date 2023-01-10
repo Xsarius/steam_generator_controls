@@ -32,12 +32,19 @@ services:
     restart: "on-failure"
   redis:
     build: ./redis
-    command: redis-server && -l -p 6379 -v
+    command: redis-server
+    expose:
+      - 6379
+    ports:
+      - 6379
     restart: 'on-failure'
   celery:
     build: ./web
     command: celery --app=web worker --loglevel=INFO -E
     restart: always
+    environment:
+      - CELERY_BROKER_URL = "redis://redis:6379/0"
+      - CELERY_RESULT_BACKEND = "redis://redis:6379/0"
     volumes:
       - ./web:/home/src/web
     privileged: true
