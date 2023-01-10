@@ -78,6 +78,8 @@ def control_loop(controller):
 
     time.sleep(10)
 
+    return 0
+
 @shared_task()
 def save_data_to_db(controller, data):
     # SteamGenerator.objects.create(
@@ -91,4 +93,4 @@ def save_data_to_db(controller, data):
     #     heater_steam_power = data['htst_pwr'],
     #     valve = data['valve']
     # )
-    pass
+    return 0
