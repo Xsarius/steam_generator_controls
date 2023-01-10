@@ -8,3 +8,4 @@ pymodbus
 celery
 redis
 psycopg2-binary
+tzdata
