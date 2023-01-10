@@ -139,7 +139,7 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CELERY_BROKER_URL = "redis://redis:6379/0"
+CELERY_BROKER_URL = "redis://webapp-redis:6379/0"
 CELERY_BROKER_TRANSPORT = 'redis'
 CELERY_RESULT_BACKEND = "redis"
-CELERY_BACKEND_URL = 'redis://redis:6379/1'
+CELERY_BACKEND_URL = 'redis://webapp-redis:6379/1'
