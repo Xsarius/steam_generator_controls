@@ -27,11 +27,11 @@ class Index(View):
             'save': save_toggle,
         }
 
-        controller.set_commands(commands)
+        debug_task().delay()
 
-        control_loop()
+        controller.set_commands(commands).delay()
 
-        debug_task()
+        control_loop().delay()
 
         output = output = {
             'water_temp': 0,
