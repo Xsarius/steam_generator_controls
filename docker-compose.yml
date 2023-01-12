@@ -18,10 +18,8 @@ services:
       - ./.env
     privileged: true
     depends_on:
+      - redis
       - db
-      - redis
-    links:
-      - redis
   nginx:
     build:
       context: ./nginx
@@ -41,8 +39,10 @@ services:
     volumes:
       - ./web:/home/src/web
     privileged: true
-    links:
+    depends_on:
+      - web
       - redis
+      - db
   db:
     build: ./postgres
     volumes:

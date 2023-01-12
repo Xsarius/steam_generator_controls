@@ -5,7 +5,9 @@ RPi.GPIO
 gunicorn
 django-bootstrap-v5
 pymodbus
-celery[redis]
+celery
+django-celery-results
+python-decouple
 redis
 psycopg2-binary
 tzdata
