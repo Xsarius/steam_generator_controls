@@ -28,7 +28,7 @@ class Index(View):
 
         controller.set_commands(commands)
 
-        control_loop.delay(controller)
+        control_loop.delay()
 
         output = output = {
             'water_temp': 0,
