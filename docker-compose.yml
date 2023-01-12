@@ -33,6 +33,8 @@ services:
   redis:
     build: ./redis
     command: redis-server
+    ports:
+      - "6379:6379"
     restart: 'on-failure'
   celery:
     build: ./web
