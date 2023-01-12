@@ -17,15 +17,15 @@ class Index(View):
         stop = request.GET.get('stop')
         save_toggle = request.GET.get('save')
 
-        # commands = {
-        #     'heater_1_power': ht_1_pwr,
-        #     'heater_2_power': ht_2_pwr,
-        #     'heater_3_power': ht_3_pwr,
-        #     'heater_steam_power': ht_st_pwr,
-        #     'valve': valve,
-        #     'STOP': stop,
-        #     'save': save_toggle,
-        # }
+        commands = {
+            'heater_1_power': ht_1_pwr,
+            'heater_2_power': ht_2_pwr,
+            'heater_3_power': ht_3_pwr,
+            'heater_steam_power': ht_st_pwr,
+            'valve': valve,
+            'STOP': stop,
+            'save': save_toggle,
+        }
 
         # controller.set_commands(commands)
 
