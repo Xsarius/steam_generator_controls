@@ -1,12 +1,14 @@
 from webcontrol.sensors import devices
 from web.settings import PINS
 from celery import shared_task
+from web.settings import 
 import time
 
 @shared_task()
 def control_loop():
     if(DEBUG):
-            print("control loop entered\n")
+        print("control loop entered\n")
+        time.sleep(5)
     # # Water temperature sensor
     # temp_sensor_w1 = devices.Pt100_SPI(pinNum=PINS['TEMP_WATER_1'])
 
@@ -79,6 +81,7 @@ def control_loop():
 def save_data_to_db(controller, data):
     if(DEBUG):
             print("data to db save started\n")
+            time.sleep(5)
     # SteamGenerator.objects.create(
     #     water_temp= self.temp[0],
     #     steam_temp_1= self.temp[1],

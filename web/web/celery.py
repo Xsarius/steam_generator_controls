@@ -13,3 +13,4 @@ app.autodiscover_tasks()
 def debug_task(self):
     # Só pra debug
     print('Request: {0!r}'.format(self.request))
+    time.sleep(5)
