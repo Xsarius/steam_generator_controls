@@ -27,9 +27,9 @@ class Index(View):
             'save': save_toggle,
         }
 
-        # controller.set_commands(commands)
+        controller.set_commands(commands)
 
-        # control_loop.delay()
+        control_loop.delay()
 
         debug_task()
 

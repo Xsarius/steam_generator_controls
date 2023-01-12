@@ -1,3 +1,5 @@
+from web.settings import DEBUG
+
 class SGController:
     def __init__(self, STOP=0, temp=[0, 0, 0], pressure=0, commands = {
             'heater_1_power': 0,
@@ -15,6 +17,8 @@ class SGController:
     # Commands - dict with approperiate commands
 
     def set_commands(self, commands):
+        if(DEBUG):
+            print("controller commands set\n")
         self.control_commands['heater_1_power'] = commands['heater_1_power']
         self.control_commands['heater_2_power'] = commands['heater_2_power']
         self.control_commands['heater_3_power'] = commands['heater_3_power']
@@ -24,7 +28,8 @@ class SGController:
         self.control_commands['save'] = commands['save']
 
     def get_output(self):
-
+        if(DEBUG):
+            print("controller output\n")
         output = {
             'water_temp': self.temp[0],
             'steam_temp_1': self.temp[1],

@@ -5,8 +5,8 @@ import time
 
 @shared_task()
 def control_loop():
-    print("Controls started")
-
+    if(DEBUG):
+            print("control loop entered\n")
     # # Water temperature sensor
     # temp_sensor_w1 = devices.Pt100_SPI(pinNum=PINS['TEMP_WATER_1'])
 
@@ -26,8 +26,6 @@ def control_loop():
     # heater_steam_1 = devices.Heater_SSR(pinNum=PINS['HEATER_STEAM_1'],maxpower=954)
 
     # steam_valve_1 = devices.Valve_SRR(pinNum=PINS['VALVE_1'])
-
-    print("Controls running")
 
     # if(controller.STOP):
     #     heater_steam_1.off()
@@ -76,12 +74,11 @@ def control_loop():
     # elif(not controller.control_commands['valve']):
     #     steam_valve_1.close()
 
-    time.sleep(10)
-
-    return 0
 
 @shared_task()
 def save_data_to_db(controller, data):
+    if(DEBUG):
+            print("data to db save started\n")
     # SteamGenerator.objects.create(
     #     water_temp= self.temp[0],
     #     steam_temp_1= self.temp[1],
@@ -93,4 +90,4 @@ def save_data_to_db(controller, data):
     #     heater_steam_power = data['htst_pwr'],
     #     valve = data['valve']
     # )
-    return 0
+    pass
