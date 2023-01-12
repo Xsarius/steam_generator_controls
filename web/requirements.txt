@@ -11,3 +11,4 @@ python-decouple
 redis
 psycopg2-binary
 tzdata
+time
