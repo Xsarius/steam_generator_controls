@@ -1,7 +1,7 @@
 from webcontrol.sensors import devices
 from web.settings import PINS
 from celery import shared_task
-from web.settings import 
+from web.settings import DEBUG
 import time
 
 @shared_task()
