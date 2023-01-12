@@ -20,8 +20,6 @@ services:
     depends_on:
       - db
       - redis
-    networks:
-      - webnet
   nginx:
     build:
       context: ./nginx
@@ -32,14 +30,10 @@ services:
     depends_on:
       - web
     restart: "on-failure"
-    networks:
-        - webnet
   redis:
     build: ./redis
     command: redis-server
     restart: 'on-failure'
-    networks:
-        - webnet
   celery:
     build: ./web
     command: celery --app=web worker --loglevel=INFO
@@ -48,8 +42,6 @@ services:
     privileged: true
     depends_on:
       - web
-    networks:
-        - webnet
   db:
     build: ./postgres
     volumes:
@@ -58,10 +50,6 @@ services:
       - "5432:5432"
     env_file:
       - ./.env
-    networks:
-        - webnet
 volumes:
   static_volume: {}
   postgres_data: {}
-networks:
-  webnet:
