@@ -2,6 +2,7 @@
 
 import os
 from celery import Celery
+import time
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "web.settings")
 
