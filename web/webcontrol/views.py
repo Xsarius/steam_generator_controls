@@ -29,7 +29,7 @@ class Index(View):
 
         controller.set_commands(commands)
 
-        control_loop.delay()
+        control_loop()
 
         debug_task()
 
