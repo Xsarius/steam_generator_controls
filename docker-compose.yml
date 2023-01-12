@@ -20,6 +20,8 @@ services:
     depends_on:
       - db
       - redis
+    links:
+      - redis
   nginx:
     build:
       context: ./nginx
@@ -33,17 +35,14 @@ services:
   redis:
     build: ./redis
     command: redis-server
-    ports:
-      - "6379:6379"
-    restart: 'on-failure'
   celery:
     build: ./web
     command: celery --app=web worker -E --loglevel=INFO
     volumes:
       - ./web:/home/src/web
     privileged: true
-    depends_on:
-      - web
+    links:
+      - redis
   db:
     build: ./postgres
     volumes:
