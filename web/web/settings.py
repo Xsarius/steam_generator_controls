@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-4s^9-k2ehl*$v!9fg%7&6z%9=9@wnh3d$vmb_5m_76uq%1fmdx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '192.168.0.26']
+ALLOWED_HOSTS = ['192.168.0.26']
 
 # Raspberry pins used
 
