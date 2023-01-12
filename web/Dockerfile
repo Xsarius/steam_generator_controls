@@ -20,4 +20,6 @@ ENV PYTHONUNBUFFERED 1
 # copy project
 COPY . .
 
+EXPOSE 8000
+
 CMD ["sh", "server-entrypoint.sh" ]
